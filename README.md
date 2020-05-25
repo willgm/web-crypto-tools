@@ -47,10 +47,10 @@ expect(originalData).toEqual(decode(decryptedValue));
 
 ## Documentation
 
-The documentation with all available API and options is available.
+The [documentation with all available API and options](https://willgm.github.io/web-crypto-tools/) at our GitHub Pages.
 
-The test cases are also quite readable and can be used as example for all the possible uses of the API.
+The [test cases](https://github.com/willgm/web-crypto-tools/tree/master/test) are also quite readable and can be used as example for all the possible API uses.
 
 ## License
 
-[MIT](/LICENSE)
+[MIT](https://github.com/willgm/web-crypto-tools/blob/master/LICENSE)
