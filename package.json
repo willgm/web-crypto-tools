@@ -15,11 +15,11 @@
     "cryptokey",
     "key"
   ],
-  "main": "web-crypto-tools.cjs.js",
-  "browser": "web-crypto-tools.umd.js",
-  "module": "web-crypto-tools.module.js",
-  "es2015": "web-crypto-tools.es2015.js",
-  "typings": "web-crypto-tools.d.ts",
+  "main": "dist/web-crypto-tools.cjs.js",
+  "browser": "dist/web-crypto-tools.umd.js",
+  "module": "dist/web-crypto-tools.module.js",
+  "es2015": "dist/web-crypto-tools.es2015.js",
+  "typings": "dist/web-crypto-tools.d.ts",
   "files": [
     "dist"
   ],
@@ -38,7 +38,6 @@
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "shx rm -rf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
-    "postbuild": "shx cp package.json ./dist && shx cp README.md ./dist/README.md",
     "predocs": "shx rm -rf docs",
     "docs": "typedoc --stripInternal --out docs --target es6 --theme minimal --mode file src",
     "postdocs": "shx touch ./docs/.nojekyll",
@@ -62,12 +61,7 @@
         }
       ],
       "@semantic-release/changelog",
-      [
-        "@semantic-release/npm",
-        {
-          "pkgRoot": "dist"
-        }
-      ],
+      "@semantic-release/npm",
       [
         "@semantic-release/git",
         {

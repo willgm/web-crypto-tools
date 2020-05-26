@@ -9,8 +9,6 @@ const pkg = require('./package.json');
 
 const libraryName = 'web-crypto-tools';
 
-const distFile = 'dist/';
-
 const config = (tsconfigOverride = null) => ({
   input: `src/${libraryName}.ts`,
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
@@ -39,18 +37,13 @@ export default [
   {
     ...config({ compilerOptions: { target: 'es5' } }),
     output: [
-      { file: distFile + pkg.main, format: 'cjs', sourcemap: true },
-      { file: distFile + pkg.module, format: 'es', sourcemap: true },
-      {
-        file: distFile + pkg.browser,
-        name: camelCase(libraryName),
-        format: 'umd',
-        sourcemap: true,
-      },
+      { file: pkg.main, format: 'cjs', sourcemap: true },
+      { file: pkg.module, format: 'es', sourcemap: true },
+      { file: pkg.browser, name: camelCase(libraryName), format: 'umd', sourcemap: true },
     ],
   },
   {
     ...config(),
-    output: [{ file: distFile + pkg.es2015, format: 'es', sourcemap: true }],
+    output: [{ file: pkg.es2015, format: 'es', sourcemap: true }],
   },
 ];
