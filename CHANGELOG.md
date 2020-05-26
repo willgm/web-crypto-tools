@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/willgm/web-crypto-tools/compare/v1.0.1...v1.0.2) (2020-05-26)
+
+
+### Bug Fixes
+
+* add repository url ([e1de904](https://github.com/willgm/web-crypto-tools/commit/e1de904bb3e2e69f4418d6036be2d361fe6d80c2))
+
 ## [1.0.1](https://github.com/willgm/web-crypto-tools/compare/v1.0.0...v1.0.1) (2020-05-26)
 
 
