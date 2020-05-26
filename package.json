@@ -38,7 +38,7 @@
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "shx rm -rf dist",
     "build": "tsc --module commonjs && rollup -c rollup.config.ts",
-    "postbuild": "shx cp package.json ./dist",
+    "postbuild": "shx cp package.json ./dist && shx cp README.md ./dist/README.md",
     "predocs": "shx rm -rf docs",
     "docs": "typedoc --stripInternal --out docs --target es6 --theme minimal --mode file src",
     "postdocs": "shx touch ./docs/.nojekyll",
