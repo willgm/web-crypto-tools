@@ -1,6 +1,6 @@
 # Web Crypto Tools
 
-This is has a set of tools to facilitate and give good defaults for use of the native **[Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)**.
+This is a set of tools to facilitate and give good defaults for use of the native **[Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)**.
 
 This project depends on the browser implementation of [Crypto API](https://caniuse.com/#feat=cryptography) and [TextEncoder API](https://caniuse.com/#feat=textencoder), which are both current implemented on all green browsers. If you do need to support IE or any older browser, you should look for available polyfills.
 
@@ -24,6 +24,7 @@ import {
   deriveCryptKey,
   encryptValue,
   decryptValue,
+  decode,
 } from '@webcrypto/tools';
 
 // get any data, string or typed arrays
