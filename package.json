@@ -15,11 +15,11 @@
     "cryptokey",
     "key"
   ],
-  "main": "dist/escrypto-core.cjs.js",
-  "browser": "dist/escrypto-core.umd.js",
-  "module": "dist/escrypto-core.module.js",
-  "es2015": "dist/escrypto-core.es2015.js",
-  "typings": "dist/types/escrypto-core.d.ts",
+  "main": "web-crypto-tools.cjs.js",
+  "browser": "web-crypto-tools.umd.js",
+  "module": "web-crypto-tools.module.js",
+  "es2015": "web-crypto-tools.es2015.js",
+  "typings": "web-crypto-tools.d.ts",
   "files": [
     "dist"
   ],
