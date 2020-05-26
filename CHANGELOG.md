@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/willgm/web-crypto-tools/compare/v1.0.3...v1.0.4) (2020-05-26)
+
+
+### Bug Fixes
+
+* correct build path for publishing ([5249610](https://github.com/willgm/web-crypto-tools/commit/52496107a8d59b4ec1dbb8922d7c5617405b1e64))
+
 ## [1.0.3](https://github.com/willgm/web-crypto-tools/compare/v1.0.2...v1.0.3) (2020-05-26)
 
 
