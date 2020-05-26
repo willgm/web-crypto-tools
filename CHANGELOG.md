@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/willgm/web-crypto-tools/compare/v1.0.2...v1.0.3) (2020-05-26)
+
+
+### Bug Fixes
+
+* publishing README to npm ([d20d36d](https://github.com/willgm/web-crypto-tools/commit/d20d36d10a99646b10a4fb85d10a13ea162fe24c))
+
 ## [1.0.2](https://github.com/willgm/web-crypto-tools/compare/v1.0.1...v1.0.2) (2020-05-26)
 
 
