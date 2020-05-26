@@ -1,6 +1,7 @@
 {
   "name": "@webcrypto/tools",
   "version": "0.0.0",
+  "private": false,
   "description": "A set of tools to facilitate and give good defaults for use of the native Web Crypto API.",
   "publishConfig": {
     "access": "public"
@@ -25,8 +26,9 @@
   "author": "William Grasel <d.rufos@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/willgm/web-crypto-tools.git"
   },
+  "homepage": "https://willgm.github.io/web-crypto-tools/",
   "license": "MIT",
   "engines": {
     "node": ">=10.0.0"
