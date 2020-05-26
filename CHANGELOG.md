@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/willgm/web-crypto-tools/compare/v1.0.4...v1.0.5) (2020-05-26)
+
+
+### Bug Fixes
+
+* publishing the entire dist folder to npm ([d3a3d40](https://github.com/willgm/web-crypto-tools/commit/d3a3d4014ee302ab51b40484e3f96e74c71deaea))
+
 ## [1.0.4](https://github.com/willgm/web-crypto-tools/compare/v1.0.3...v1.0.4) (2020-05-26)
 
 
