@@ -1,12 +1,12 @@
 # Web Crypto Tools
 
-This is a set of tools to facilitate and give good defaults for use of the native **[Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)**.
+This project is a set of tools to facilitate and give good defaults for use of the native **[Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)**.
 
 This project depends on the browser implementation of [Crypto API](https://caniuse.com/#feat=cryptography) and [TextEncoder API](https://caniuse.com/#feat=textencoder), which are both current implemented on all green browsers. If you do need to support IE or any older browser, you should look for available polyfills.
 
-The native browser implementation of crypto algorithms are much faster and secure than any other JavaScript library out there. But at the same time, it is a low level API that relies on you to decide every little detail of it, so this project will give you good defaults and a better developer experience, until still let's you decide if you prefer to use other algorithms or extra protections. Be aware that, even if this project facilitates the use of the Web Crypto API, it will not prevent you from make any mistakes if you have no idea about cryptography concepts, so take your time to study a little before use it in a real project.
+The native browser implementation of crypto algorithms are much more fast and secure than any other JavaScript library out there. But at the same time, it is a low level API that relies on you to decide every little detail of it, so this project will give you good defaults and a better developer experience, and still let you decide if you prefer use other algorithms or extra protections. Be aware that, even if this project facilitates the use of the Web Crypto API, it will not prevent you from make any mistakes if you have no idea about cryptography concepts, so take your time to study a little before use it in a real project.
 
-In the end, this is a simple collection of stateless functions, values and types, that can be individually imported and used. The minified project has currently only about 3kb in total, but it is also tree-shaking friendly, so you can end up using even less.
+In the end, this is a simple collection of stateless functions, values and types, that can be individually imported and used. The minified project has currently only about 3kb in total and it is also tree-shaking friendly, so you can end up using even less.
 
 ## Usage
 
