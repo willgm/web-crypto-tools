@@ -68,7 +68,8 @@
           "assets": [
             "docs",
             "CHANGELOG.md",
-            "package.json"
+            "package.json",
+            "package-lock.json"
           ]
         }
       ]
