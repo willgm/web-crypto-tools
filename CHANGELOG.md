@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/willgm/web-crypto-tools/compare/v1.0.5...v1.0.6) (2020-05-27)
+
+
+### Bug Fixes
+
+* spelling ([5e840ab](https://github.com/willgm/web-crypto-tools/commit/5e840ab24cfc9d97a96fb33f98ad663f15801f38))
+
 ## [1.0.5](https://github.com/willgm/web-crypto-tools/compare/v1.0.4...v1.0.5) (2020-05-26)
 
 
