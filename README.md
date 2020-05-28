@@ -22,6 +22,7 @@ npm install @webcrypto/tools --save
 import {
   generateBaseCryptoKey,
   deriveCryptKey,
+  generateSalt,
   encryptValue,
   decryptValue,
   decode,
