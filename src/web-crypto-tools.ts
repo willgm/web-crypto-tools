@@ -12,7 +12,7 @@ export type ImportAlgorithm =
 /**
  * Import Key Web Crypto Algorithms
  */
-export type OriginalKeyFormat = 'raw' | 'pkcs8' | 'spki';
+export type OriginalKeyFormat = 'raw' | 'pkcs8' | 'spki' | 'jwk';
 
 /**
  * Derive Key Algorithms at at Web Crypto API
@@ -96,15 +96,16 @@ export const PBKDF2_ITERATIONS_DEFAULT: number = 50000;
  * @returns A promise with the base Crypto Key.
  */
 export function generateBaseCryptoKey(
-  rawKey: string | TypedArray,
+  rawKey: string | TypedArray | JsonWebKey,
   algorithm: ImportAlgorithm = 'PBKDF2',
   keyUsages: KeyUsage[] = ['deriveKey'],
   format: OriginalKeyFormat = 'raw',
 ): Promise<CryptoKey> {
+  const isJwkKey = !isTypedArray(rawKey) && typeof rawKey === 'object';
   return Promise.resolve(
     crypto.subtle.importKey(
-      format,
-      encode(rawKey),
+      isJwkKey ? 'jwk' : format,
+      typeof rawKey === 'string' ? encode(rawKey) : rawKey,
       algorithm,
       false, // the original value will not be extractable
       keyUsages,

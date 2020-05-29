@@ -43,6 +43,27 @@ describe('Web Crypto Tools', () => {
       );
       expect(subject.algorithm).toEqual({ name: 'AES-GCM', length: 128 } as any);
     });
+
+    it('should accept JSON Web Key', async () => {
+      const jwkEcKey = {
+        crv: 'P-384',
+        d: 'wouCtU7Nw4E8_7n5C1-xBjB4xqSb_liZhYMsy8MGgxUny6Q8NCoH9xSiviwLFfK_',
+        ext: true,
+        key_ops: ['sign'],
+        kty: 'EC',
+        x: 'SzrRXmyI8VWFJg1dPUNbFcc9jZvjZEfH7ulKI1UkXAltd7RGWrcfFxqyGPcwu6AQ',
+        y: 'hHUag3OvDzEr0uUQND4PXHQTXP5IDGdYhJhL-WLKjnGjQAw0rNGy5V29-aV-yseW',
+      };
+      const subject = await generateBaseCryptoKey(
+        jwkEcKey,
+        {
+          name: 'ECDSA',
+          namedCurve: 'P-384',
+        },
+        ['sign'],
+      );
+      expect(subject.algorithm).toEqual({ name: 'ECDSA', namedCurve: 'P-384' } as any);
+    });
   });
 
   describe('Key Derivation', () => {
