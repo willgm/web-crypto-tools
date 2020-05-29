@@ -119,8 +119,8 @@ export function generateBaseCryptoKey(
  *
  * @param cryptoBaseKey The base Crypto Key to be derive.
  * @param salt The salt value to be used with the default `PBKDF2` derive algorithm.
- * @param iterations The number of iterations to be used with the default `PBKDF2` derive algorithm.
- * @param keyUsages The new uses of the new derive Crypto Key.
+ * @param iterations The number of iterations to be used with the default `PBKDF2` derive algorithm. Default value: `PBKDF2_ITERATIONS_DEFAULT`.
+ * @param keyUsages The new uses of the new derive Crypto Key. Default value: `['encrypt', 'decrypt']`.
  * @returns A promise with the derived Crypto Key for other uses.
  */
 export function deriveCryptKey(
@@ -136,8 +136,8 @@ export function deriveCryptKey(
  *
  * @param cryptoBaseKey The base Crypto Key to be derive.
  * @param salt The salt value to be used with the default `PBKDF2` derive algorithm.
- * @param algorithmFor The algorithm where the derived Crypto Key will be used.
- * @param keyUsages The new uses of the new derive Crypto Key.
+ * @param algorithmFor The algorithm where the derived Crypto Key will be used. Default value: `{ name: 'AES-GCM', length: 256 }`.
+ * @param keyUsages The new uses of the new derive Crypto Key. Default value: `['encrypt', 'decrypt']`.
  * @returns A promise with the derived Crypto Key for other uses.
  */
 export function deriveCryptKey(
@@ -153,8 +153,8 @@ export function deriveCryptKey(
  *
  * @param cryptoBaseKey The base Crypto Key to be derive.
  * @param deriveAlgorithm The algorithm to be used when deriving the Crypto Key.
- * @param algorithmFor The algorithm where the derived Crypto Key will be used.
- * @param keyUsages The new uses of the new derive Crypto Key.
+ * @param algorithmFor The algorithm where the derived Crypto Key will be used. Default value: `{ name: 'AES-GCM', length: 256 }`.
+ * @param keyUsages The new uses of the new derive Crypto Key. Default value: `['encrypt', 'decrypt']`.
  * @returns A promise with the derived Crypto Key for other uses.
  */
 export function deriveCryptKey(
