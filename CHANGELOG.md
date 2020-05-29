@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/willgm/web-crypto-tools/compare/v1.0.6...v1.1.0) (2020-05-29)
+
+
+### Features
+
+* **jwk:** adds support for importing key from JSON Web Key ([befcf93](https://github.com/willgm/web-crypto-tools/commit/befcf93dfc965c4dc801dd577689cf694b35ffa5))
+
 ## [1.0.6](https://github.com/willgm/web-crypto-tools/compare/v1.0.5...v1.0.6) (2020-05-27)
 
 

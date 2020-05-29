@@ -2804,6 +2804,7 @@ img {
 			<pre><code class="language-ts"><span class="hljs-keyword">import</span> {
   generateBaseCryptoKey,
   deriveCryptKey,
+  generateSalt,
   encryptValue,
   decryptValue,
   decode,
@@ -2886,7 +2887,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Crypto<wbr>Algorithm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">RsaOaepParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AesCtrParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AesCbcParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AesCmacParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AesGcmParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AesCfbParams</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L42">web-crypto-tools.ts:42</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L42">web-crypto-tools.ts:42</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2901,7 +2902,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Crypto<wbr>Key<wbr>Usage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"encrypt"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"decrypt"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"deriveKey"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"deriveBits"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"wrapKey"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"sign"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"verify"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"unwrapKey"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L70">web-crypto-tools.ts:70</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L70">web-crypto-tools.ts:70</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2916,7 +2917,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Derive<wbr>Algorithm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">EcdhKeyDeriveParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DhKeyDeriveParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ConcatParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HkdfCtrParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Pbkdf2Params</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L20">web-crypto-tools.ts:20</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L20">web-crypto-tools.ts:20</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2931,7 +2932,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Derived<wbr>Algorithm<wbr>For<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AesDerivedKeyParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HmacImportParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ConcatParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HkdfCtrParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Pbkdf2Params</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L31">web-crypto-tools.ts:31</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L31">web-crypto-tools.ts:31</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2946,7 +2947,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Import<wbr>Algorithm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">RsaHashedImportParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">EcKeyImportParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">HmacImportParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DhImportKeyParams</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AesKeyAlgorithm</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L4">web-crypto-tools.ts:4</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L4">web-crypto-tools.ts:4</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2958,10 +2959,10 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
 				<a name="originalkeyformat" class="tsd-anchor"></a>
 				<h3>Original<wbr>Key<wbr>Format</h3>
-				<div class="tsd-signature tsd-kind-icon">Original<wbr>Key<wbr>Format<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"raw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pkcs8"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"spki"</span></div>
+				<div class="tsd-signature tsd-kind-icon">Original<wbr>Key<wbr>Format<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"raw"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pkcs8"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"spki"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"jwk"</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L15">web-crypto-tools.ts:15</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L15">web-crypto-tools.ts:15</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2976,7 +2977,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<div class="tsd-signature tsd-kind-icon">Typed<wbr>Array<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Int8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Int16Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Int32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint16Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8ClampedArray</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Float32Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Float64Array</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">DataView</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayBuffer</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L54">web-crypto-tools.ts:54</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L54">web-crypto-tools.ts:54</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2994,7 +2995,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<div class="tsd-signature tsd-kind-icon">PBKDF2_<wbr>ITERATIONS_<wbr>DEFAULT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 50000</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L83">web-crypto-tools.ts:83</a></li>
+						<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L83">web-crypto-tools.ts:83</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -3016,7 +3017,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L300">web-crypto-tools.ts:300</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L301">web-crypto-tools.ts:301</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3049,7 +3050,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L237">web-crypto-tools.ts:237</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L238">web-crypto-tools.ts:238</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3095,7 +3096,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L125">web-crypto-tools.ts:125</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L126">web-crypto-tools.ts:126</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3121,13 +3122,13 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> iterations: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>The number of iterations to be used with the default <code>PBKDF2</code> derive algorithm.</p>
+									<p>The number of iterations to be used with the default <code>PBKDF2</code> derive algorithm. Default value: <code>PBKDF2_ITERATIONS_DEFAULT</code>.</p>
 								</div>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> keyUsages: <a href="globals.html#cryptokeyusage" class="tsd-signature-type">CryptoKeyUsage</a><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>The new uses of the new derive Crypto Key.</p>
+									<p>The new uses of the new derive Crypto Key. Default value: <code>[&#39;encrypt&#39;, &#39;decrypt&#39;]</code>.</p>
 								</div>
 							</li>
 						</ul>
@@ -3137,7 +3138,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L142">web-crypto-tools.ts:142</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L143">web-crypto-tools.ts:143</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3163,13 +3164,13 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> algorithmFor: <a href="globals.html#derivedalgorithmfor" class="tsd-signature-type">DerivedAlgorithmFor</a></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>The algorithm where the derived Crypto Key will be used.</p>
+									<p>The algorithm where the derived Crypto Key will be used. Default value: <code>{ name: &#39;AES-GCM&#39;, length: 256 }</code>.</p>
 								</div>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> keyUsages: <a href="globals.html#cryptokeyusage" class="tsd-signature-type">CryptoKeyUsage</a><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>The new uses of the new derive Crypto Key.</p>
+									<p>The new uses of the new derive Crypto Key. Default value: <code>[&#39;encrypt&#39;, &#39;decrypt&#39;]</code>.</p>
 								</div>
 							</li>
 						</ul>
@@ -3179,7 +3180,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L159">web-crypto-tools.ts:159</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L160">web-crypto-tools.ts:160</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3205,13 +3206,13 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> algorithmFor: <a href="globals.html#derivedalgorithmfor" class="tsd-signature-type">DerivedAlgorithmFor</a></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>The algorithm where the derived Crypto Key will be used.</p>
+									<p>The algorithm where the derived Crypto Key will be used. Default value: <code>{ name: &#39;AES-GCM&#39;, length: 256 }</code>.</p>
 								</div>
 							</li>
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> keyUsages: <a href="globals.html#cryptokeyusage" class="tsd-signature-type">CryptoKeyUsage</a><span class="tsd-signature-symbol">[]</span></h5>
 								<div class="tsd-comment tsd-typography">
-									<p>The new uses of the new derive Crypto Key.</p>
+									<p>The new uses of the new derive Crypto Key. Default value: <code>[&#39;encrypt&#39;, &#39;decrypt&#39;]</code>.</p>
 								</div>
 							</li>
 						</ul>
@@ -3230,7 +3231,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L289">web-crypto-tools.ts:289</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L290">web-crypto-tools.ts:290</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3263,7 +3264,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L219">web-crypto-tools.ts:219</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L220">web-crypto-tools.ts:220</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3301,13 +3302,13 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 				<a name="generatebasecryptokey" class="tsd-anchor"></a>
 				<h3>generate<wbr>Base<wbr>Crypto<wbr>Key</h3>
 				<ul class="tsd-signatures tsd-kind-function">
-					<li class="tsd-signature tsd-kind-icon">generate<wbr>Base<wbr>Crypto<wbr>Key<span class="tsd-signature-symbol">(</span>rawKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="globals.html#typedarray" class="tsd-signature-type">TypedArray</a>, algorithm<span class="tsd-signature-symbol">?: </span><a href="globals.html#importalgorithm" class="tsd-signature-type">ImportAlgorithm</a>, keyUsages<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">KeyUsage</span><span class="tsd-signature-symbol">[]</span>, format<span class="tsd-signature-symbol">?: </span><a href="globals.html#originalkeyformat" class="tsd-signature-type">OriginalKeyFormat</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CryptoKey</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">generate<wbr>Base<wbr>Crypto<wbr>Key<span class="tsd-signature-symbol">(</span>rawKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="globals.html#typedarray" class="tsd-signature-type">TypedArray</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">JsonWebKey</span>, algorithm<span class="tsd-signature-symbol">?: </span><a href="globals.html#importalgorithm" class="tsd-signature-type">ImportAlgorithm</a>, keyUsages<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">KeyUsage</span><span class="tsd-signature-symbol">[]</span>, format<span class="tsd-signature-symbol">?: </span><a href="globals.html#originalkeyformat" class="tsd-signature-type">OriginalKeyFormat</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CryptoKey</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L98">web-crypto-tools.ts:98</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L98">web-crypto-tools.ts:98</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3322,7 +3323,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>rawKey: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="globals.html#typedarray" class="tsd-signature-type">TypedArray</a></h5>
+								<h5>rawKey: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="globals.html#typedarray" class="tsd-signature-type">TypedArray</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">JsonWebKey</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<p>The original key to start the encrypt process.</p>
 								</div>
@@ -3361,7 +3362,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L311">web-crypto-tools.ts:311</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L312">web-crypto-tools.ts:312</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3399,7 +3400,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L254">web-crypto-tools.ts:254</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L255">web-crypto-tools.ts:255</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3431,7 +3432,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L278">web-crypto-tools.ts:278</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L279">web-crypto-tools.ts:279</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3463,7 +3464,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L266">web-crypto-tools.ts:266</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L267">web-crypto-tools.ts:267</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -3495,7 +3496,7 @@ expect(originalData).toEqual(decode(decryptedValue));</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/5e840ab/src/web-crypto-tools.ts#L207">web-crypto-tools.ts:207</a></li>
+								<li>Defined in <a href="https://github.com/willgm/web-crypto-tools/blob/b063eee/src/web-crypto-tools.ts#L208">web-crypto-tools.ts:208</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
