@@ -1,6 +1,45 @@
 # Web Crypto Tools
 
-This project is a set of tools to facilitate and give good defaults for use of the native **[Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)**.
+<p>
+  <a
+    href="https://github.com/willgm/web-crypto-tools/actions"
+    target="_blank"
+  >
+    <img
+      alt="Build"
+      src="https://img.shields.io/github/workflow/status/willgm/web-crypto-tools/CI"
+    />
+  </a>
+  <a
+    href="https://www.npmjs.com/package/@webcrypto/storage"
+    target="_blank"
+  >
+    <img
+      alt="Version"
+      src="https://img.shields.io/github/package-json/v/willgm/web-crypto-tools"
+    />
+  </a>
+  <a
+    href="https://github.com/willgm/web-crypto-tools/blob/master/LICENSE"
+    target="_blank"
+  >
+    <img
+      src="https://img.shields.io/badge/license-MIT-blue.svg"
+      alt="web-crypto-tools is released under the MIT license"
+    />
+  </a>
+  <a
+    href="https://github.com/willgm/web-crypto-tools/graphs/contributors"
+    target="_blank"
+  >
+    <img
+      alt="Contributors"
+      src="https://img.shields.io/github/contributors/willgm/web-crypto-tools.svg"
+    />
+  </a>
+</p>
+
+> This project is a set of tools to facilitate and give good defaults for use of the native **[Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API)**.
 
 This project depends on the browser implementation of [Crypto API](https://caniuse.com/#feat=cryptography) and [TextEncoder API](https://caniuse.com/#feat=textencoder), which are both current implemented on all green browsers. If you do need to support IE or any older browser, you should look for available polyfills.
 
