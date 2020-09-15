@@ -11,7 +11,7 @@
     />
   </a>
   <a
-    href="https://www.npmjs.com/package/@webcrypto/storage"
+    href="https://www.npmjs.com/package/@webcrypto/tools"
     target="_blank"
   >
     <img
@@ -47,9 +47,9 @@ The native browser implementation of crypto algorithms are much more fast and se
 
 In the end, this is a simple collection of stateless functions, values and types, that can be individually imported and used. The minified project has currently only about 3kb in total and it is also tree-shaking friendly, so you can end up using even less.
 
-## Usage
+## :gear: Usage
 
-### Install the project
+### Install it at your project
 
 ```bash
 npm install @webcrypto/tools --save
@@ -86,7 +86,7 @@ const decryptedValue = await decryptValue(cryptoValue, cryptoKey, nonce);
 expect(originalData).toEqual(decode(decryptedValue));
 ```
 
-## Documentation
+## :book: Documentation
 
 The [documentation with all available API and options](https://willgm.github.io/web-crypto-tools/) at our GitHub Pages.
 
