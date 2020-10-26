@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/willgm/web-crypto-tools/compare/v1.1.0...v1.2.0) (2020-10-26)
+
+
+### Features
+
+* **getCryptoObject:** method to get the crypto object depending on the environment ([bac4919](https://github.com/willgm/web-crypto-tools/commit/bac4919bd9f1f85c012f2267498972d00897172a))
+
 # [1.1.0](https://github.com/willgm/web-crypto-tools/compare/v1.0.6...v1.1.0) (2020-05-29)
 
 
