@@ -83,6 +83,27 @@ export type CryptoKeyUsage =
 export const PBKDF2_ITERATIONS_DEFAULT: number = 50000;
 
 /**
+ * @internal
+ */
+declare global {
+  /**
+   * IE11 use a different global property.
+   * @internal
+   */
+  var msCrypto: Crypto;
+}
+
+/**
+ * Returns the crypto object depending on browser support.
+ * IE11 has support for the Crypto API, but it is in a different global scope.
+ *
+ * @returns The Crypto object.
+ */
+export function getCryptoObject(): Crypto {
+  return window.crypto || window.msCrypto; // for IE 11
+}
+
+/**
  * Creates a base Crypto Key from the original raw key, by default this base key
  * should just be used to protect the original key to be discovery,
  * and should not be used directly to any encrypt / decrypt algorithm.
@@ -103,7 +124,7 @@ export function generateBaseCryptoKey(
 ): Promise<CryptoKey> {
   const isJwkKey = !isTypedArray(rawKey) && typeof rawKey === 'object';
   return Promise.resolve(
-    crypto.subtle.importKey(
+    getCryptoObject().subtle.importKey(
       isJwkKey ? 'jwk' : format,
       typeof rawKey === 'string' ? encode(rawKey) : rawKey,
       algorithm,
@@ -189,7 +210,7 @@ export function deriveCryptKey(
       : algorithmForOrIterations;
 
   return Promise.resolve(
-    crypto.subtle.deriveKey(
+    getCryptoObject().subtle.deriveKey(
       deriveAlgorithm,
       cryptoBaseKey,
       algorithmFor,
@@ -223,7 +244,7 @@ export function encryptValue(
   algorithm: CryptoAlgorithm = { name: 'AES-GCM', iv: generateNonce() } as AesGcmParams,
 ): Promise<[ArrayBuffer, TypedArray | null]> {
   return Promise.resolve(
-    crypto.subtle.encrypt(algorithm, cryptoKey, encode(data)),
+    getCryptoObject().subtle.encrypt(algorithm, cryptoKey, encode(data)),
   ).then(cryptoValue => [cryptoValue, (algorithm as AesGcmParams).iv || null]);
 }
 
@@ -243,7 +264,7 @@ export function decryptValue(
   const algorithm = isTypedArray(nonceOrAlgorithm)
     ? ({ name: 'AES-GCM', iv: nonceOrAlgorithm } as AesGcmParams)
     : nonceOrAlgorithm;
-  return Promise.resolve(crypto.subtle.decrypt(algorithm, cryptoKey, data));
+  return Promise.resolve(getCryptoObject().subtle.decrypt(algorithm, cryptoKey, data));
 }
 
 /**
@@ -277,7 +298,7 @@ export function generateSalt(byteSize = 8): Uint8Array {
  * @returns The random value.
  */
 export function generateRandomValues(byteSize = 8): Uint8Array {
-  return crypto.getRandomValues(new Uint8Array(byteSize));
+  return getCryptoObject().getRandomValues(new Uint8Array(byteSize));
 }
 
 /**
@@ -313,5 +334,5 @@ export function generateHash(
   data: string | TypedArray,
   algorithm: string | Algorithm = 'SHA-256',
 ): Promise<ArrayBuffer> {
-  return Promise.resolve(crypto.subtle.digest(algorithm, encode(data)));
+  return Promise.resolve(getCryptoObject().subtle.digest(algorithm, encode(data)));
 }

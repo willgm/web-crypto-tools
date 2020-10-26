@@ -9,10 +9,39 @@ import {
   generateNonce,
   generateRandomValues,
   generateSalt,
+  getCryptoObject,
   isTypedArray,
 } from '../src/web-crypto-tools';
 
 describe('Web Crypto Tools', () => {
+  describe('Getting Crypto Object', () => {
+    const mscrypto = { fake: 666 } as any;
+    let originalCrypto: Crypto;
+
+    beforeEach(() => {
+      window.msCrypto = mscrypto;
+      originalCrypto = window.crypto;
+    });
+    afterEach(() => {
+      delete window.msCrypto;
+      try {
+        global.crypto = originalCrypto;
+        // tslint:disable-next-line:no-empty
+      } catch (e) {}
+    });
+
+    it('should always get crypto object by official draft property', async () => {
+      const subject = getCryptoObject();
+      expect(subject).toBe(originalCrypto);
+    });
+
+    it('should get crypto object from msCrypto property if the official property is not accessible', async () => {
+      delete global.crypto;
+      const subject = getCryptoObject();
+      expect(subject).toBe(mscrypto);
+    });
+  });
+
   describe('Base Key Creation', () => {
     it('should not be extractable extractable', async () => {
       const subject = await generateBaseCryptoKey('any raw key');
