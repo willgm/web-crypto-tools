@@ -22,7 +22,7 @@ export type DeriveAlgorithm =
   | EcdhKeyDeriveParams
   | DhKeyDeriveParams
   | ConcatParams
-  | HkdfCtrParams
+  | HkdfParams 
   | Pbkdf2Params;
 
 /**
@@ -33,7 +33,7 @@ export type DerivedAlgorithmFor =
   | AesDerivedKeyParams
   | HmacImportParams
   | ConcatParams
-  | HkdfCtrParams
+  | HkdfParams
   | Pbkdf2Params;
 
 /**
