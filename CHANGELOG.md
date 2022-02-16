@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/willgm/web-crypto-tools/compare/v1.2.0...v1.2.1) (2022-02-16)
+
+
+### Bug Fixes
+
+* update all non breaking dependencies ([01c7c0e](https://github.com/willgm/web-crypto-tools/commit/01c7c0e5d927eb0aaef9d5d626a2c7f6b9c679cc))
+
 # [1.2.0](https://github.com/willgm/web-crypto-tools/compare/v1.1.0...v1.2.0) (2020-10-26)
 
 
