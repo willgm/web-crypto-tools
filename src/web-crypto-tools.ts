@@ -2,67 +2,36 @@
  * Import Key Algorithms at Web Crypto API
  */
 export type ImportAlgorithm =
-  | string
+  | AlgorithmIdentifier
   | RsaHashedImportParams
   | EcKeyImportParams
   | HmacImportParams
-  | DhImportKeyParams
   | AesKeyAlgorithm;
-
-/**
- * Import Key Web Crypto Algorithms
- */
-export type OriginalKeyFormat = 'raw' | 'pkcs8' | 'spki' | 'jwk';
 
 /**
  * Derive Key Algorithms at at Web Crypto API
  */
-export type DeriveAlgorithm =
-  | string
-  | EcdhKeyDeriveParams
-  | DhKeyDeriveParams
-  | ConcatParams
-  | HkdfCtrParams
-  | Pbkdf2Params;
+export type DeriveAlgorithm = AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params;
 
 /**
  * Derive Algorithms Params for Web Crypto API
  */
 export type DerivedAlgorithmFor =
-  | string
+  | AlgorithmIdentifier
   | AesDerivedKeyParams
   | HmacImportParams
-  | ConcatParams
-  | HkdfCtrParams
+  | HkdfParams
   | Pbkdf2Params;
 
 /**
  * Params for Encrypt / Decrypt Algorithms at Web Crypto API
  */
 export type CryptoAlgorithm =
-  | string
+  | AlgorithmIdentifier
   | RsaOaepParams
   | AesCtrParams
   | AesCbcParams
-  | AesCmacParams
-  | AesGcmParams
-  | AesCfbParams;
-
-/**
- * TypedArray used in Web Crypto API Algorithms
- */
-export type TypedArray =
-  | Int8Array
-  | Int16Array
-  | Int32Array
-  | Uint8Array
-  | Uint16Array
-  | Uint32Array
-  | Uint8ClampedArray
-  | Float32Array
-  | Float64Array
-  | DataView
-  | ArrayBuffer;
+  | AesGcmParams;
 
 /**
  * Possible uses of Crypto Keys
@@ -117,20 +86,28 @@ export function getCryptoObject(): Crypto {
  * @returns A promise with the base Crypto Key.
  */
 export function generateBaseCryptoKey(
-  rawKey: string | TypedArray | JsonWebKey,
+  rawKey: string | BufferSource | JsonWebKey,
   algorithm: ImportAlgorithm = 'PBKDF2',
   keyUsages: KeyUsage[] = ['deriveKey'],
-  format: OriginalKeyFormat = 'raw',
+  format: KeyFormat = 'raw',
 ): Promise<CryptoKey> {
   const isJwkKey = !isTypedArray(rawKey) && typeof rawKey === 'object';
   return Promise.resolve(
-    getCryptoObject().subtle.importKey(
-      isJwkKey ? 'jwk' : format,
-      typeof rawKey === 'string' ? encode(rawKey) : rawKey,
-      algorithm,
-      false, // the original value will not be extractable
-      keyUsages,
-    ),
+    isJwkKey
+      ? getCryptoObject().subtle.importKey(
+          'jwk',
+          rawKey,
+          algorithm,
+          false, // the original value will not be extractable
+          keyUsages,
+        )
+      : getCryptoObject().subtle.importKey(
+          format as Exclude<KeyFormat, 'jwk'>,
+          typeof rawKey === 'string' ? encode(rawKey) : rawKey,
+          algorithm,
+          false, // the original value will not be extractable
+          keyUsages,
+        ),
   );
 }
 
@@ -146,7 +123,7 @@ export function generateBaseCryptoKey(
  */
 export function deriveCryptKey(
   cryptoBaseKey: CryptoKey,
-  salt: TypedArray,
+  salt: BufferSource,
   iterations?: number,
   keyUsages?: CryptoKeyUsage[],
 ): Promise<CryptoKey>;
@@ -163,7 +140,7 @@ export function deriveCryptKey(
  */
 export function deriveCryptKey(
   cryptoBaseKey: CryptoKey,
-  salt: TypedArray,
+  salt: BufferSource,
   algorithmFor?: DerivedAlgorithmFor,
   keyUsages?: CryptoKeyUsage[],
 ): Promise<CryptoKey>;
@@ -187,7 +164,7 @@ export function deriveCryptKey(
 
 export function deriveCryptKey(
   cryptoBaseKey: CryptoKey,
-  deriveAlgorithmOrSalt: DeriveAlgorithm | TypedArray,
+  deriveAlgorithmOrSalt: DeriveAlgorithm | BufferSource,
   algorithmForOrIterations: DerivedAlgorithmFor | number = PBKDF2_ITERATIONS_DEFAULT,
   keyUsages: CryptoKeyUsage[] = ['encrypt', 'decrypt'],
 ): Promise<CryptoKey> {
@@ -226,7 +203,7 @@ export function deriveCryptKey(
  * @param data Any data to be checked.
  * @returns Verify if the given data is a Typed Array.
  */
-export function isTypedArray(data: unknown): data is TypedArray {
+export function isTypedArray(data: unknown): data is BufferSource {
   return ArrayBuffer.isView(data) || data instanceof ArrayBuffer;
 }
 
@@ -239,13 +216,16 @@ export function isTypedArray(data: unknown): data is TypedArray {
  * @returns A promise with the encrypted value and the used nonce, if used with the encryption algorithm.
  */
 export function encryptValue(
-  data: string | TypedArray,
+  data: string | BufferSource,
   cryptoKey: CryptoKey,
   algorithm: CryptoAlgorithm = { name: 'AES-GCM', iv: generateNonce() } as AesGcmParams,
-): Promise<[ArrayBuffer, TypedArray | null]> {
+): Promise<[ArrayBuffer, BufferSource | null]> {
   return Promise.resolve(
     getCryptoObject().subtle.encrypt(algorithm, cryptoKey, encode(data)),
-  ).then(cryptoValue => [cryptoValue, (algorithm as AesGcmParams).iv || null]);
+  ).then(cryptoValue => [
+    cryptoValue,
+    typeof algorithm === 'object' && 'iv' in algorithm ? algorithm.iv : null,
+  ]);
 }
 
 /**
@@ -257,9 +237,9 @@ export function encryptValue(
  * @returns A promise with the decrypt value
  */
 export function decryptValue(
-  data: TypedArray,
+  data: BufferSource,
   cryptoKey: CryptoKey,
-  nonceOrAlgorithm: TypedArray | CryptoAlgorithm,
+  nonceOrAlgorithm: BufferSource | CryptoAlgorithm,
 ): Promise<ArrayBuffer> {
   const algorithm = isTypedArray(nonceOrAlgorithm)
     ? ({ name: 'AES-GCM', iv: nonceOrAlgorithm } as AesGcmParams)
@@ -308,7 +288,7 @@ export function generateRandomValues(byteSize = 8): Uint8Array {
  * @param data Value to be encoded.
  * @returns The transformed given value as a Typed Array.
  */
-export function encode(data: string | TypedArray): TypedArray {
+export function encode(data: string | BufferSource): BufferSource {
   return isTypedArray(data) ? data : new TextEncoder().encode(data);
 }
 
@@ -319,7 +299,7 @@ export function encode(data: string | TypedArray): TypedArray {
  * @param data Value to be decoded.
  * @returns The transformed given value as a string.
  */
-export function decode(data: string | TypedArray): string {
+export function decode(data: string | BufferSource): string {
   return typeof data === 'string' ? data : new TextDecoder('utf-8').decode(data);
 }
 
@@ -331,7 +311,7 @@ export function decode(data: string | TypedArray): string {
  * @returns A promise containing the hash value.
  */
 export function generateHash(
-  data: string | TypedArray,
+  data: string | BufferSource,
   algorithm: string | Algorithm = 'SHA-256',
 ): Promise<ArrayBuffer> {
   return Promise.resolve(getCryptoObject().subtle.digest(algorithm, encode(data)));
