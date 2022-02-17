@@ -1,3 +1,16 @@
+# [2.0.0](https://github.com/willgm/web-crypto-tools/compare/v1.2.1...v2.0.0) (2022-02-17)
+
+
+### Features
+
+* support for TypeScript 4.5 ([998d68b](https://github.com/willgm/web-crypto-tools/commit/998d68b10b6c2eb02d428b3b011fcd72d0d7ea3a))
+
+
+### BREAKING CHANGES
+
+* Some type definitions on the public API needed to be changed due to TypeScript
+breaking changes
+
 ## [1.2.1](https://github.com/willgm/web-crypto-tools/compare/v1.2.0...v1.2.1) (2022-02-16)
 
 
